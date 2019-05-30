@@ -18,22 +18,36 @@ state={
     id: 1528817084358,
     completed: false
     }
-  ]
+  ],
+  taskInput:""
 }
 
 changeHandler = e =>{
   e.preventDefault();
   this.setState({
-    todos: this.state.todos.filter(task => !task.complete),
+    // todos: this.state.todos.filter(task => !task.complete),
+    [e.target.name]: e.target.value
   });
 };
 
+addTask = e => {
+  e.preventDefault();
+  const newTask ={
+    task:this.state.taskInput,
+    id:Date.now(),
+    completed: false 
+  }
+  this.setState({
+    tasks: [...this.state.tasks, newTask],
+    taskInput: ''
+  })
+}
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList tasks={this.state.tasks}/>
-        <TodoForm />
+        <TodoForm taskInput={this.state.taskInput} changeHandler={this.changeHandler} addTask={this.addTask}/>
       </div>
     );
   }

@@ -7,3 +7,5 @@ function Todo(props) {
         </div>
     )
 }
+
+export default Todo
