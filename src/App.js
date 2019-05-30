@@ -30,6 +30,14 @@ changeHandler = e =>{
   });
 };
 
+clearCompleted = e => {
+  e.preventDefault();
+
+  this.setState({
+    
+  })
+}
+
 addTask = e => {
   e.preventDefault();
   const newTask ={
